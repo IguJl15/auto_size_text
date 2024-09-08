@@ -95,7 +95,7 @@ class _AutoSizeBuilderState extends State<AutoSizeBuilder> {
     if (widget.style == null || widget.style!.inherit) {
       effectiveTextStyle = defaultTextStyle.style.merge(widget.style);
     }
-    if (MediaQuery.boldTextOverride(context)) {
+    if (MediaQuery.boldTextOf(context)) {
       effectiveTextStyle = effectiveTextStyle.merge(
         const TextStyle(fontWeight: FontWeight.bold),
       );
@@ -113,8 +113,7 @@ class _AutoSizeBuilderState extends State<AutoSizeBuilder> {
       builder: widget.builder,
       overflowReplacement: widget.overflowReplacement,
       text: text,
-      textAlign:
-          widget.textAlign ?? defaultTextStyle.textAlign ?? TextAlign.start,
+      textAlign: widget.textAlign ?? defaultTextStyle.textAlign ?? TextAlign.start,
       textDirection: widget.textDirection ?? Directionality.of(context),
       minLines: widget.minLines,
       maxLines: widget.maxLines ?? defaultTextStyle.maxLines,
@@ -125,8 +124,7 @@ class _AutoSizeBuilderState extends State<AutoSizeBuilder> {
           defaultTextStyle.textHeightBehavior ??
           DefaultTextHeightBehavior.of(context),
       wrapWords: widget.wrapWords ?? false,
-      textScaleFactor:
-          widget.textScaleFactor ?? MediaQuery.textScaleFactorOf(context),
+      textScaleFactor: widget.textScaleFactor ?? MediaQuery.textScaleFactorOf(context),
       minFontSize: widget.minFontSize ?? 12.0,
       maxFontSize: widget.maxFontSize ?? double.infinity,
       stepGranularity: widget.stepGranularity ?? 1.0,
